@@ -58,7 +58,7 @@ for i in range(4):
     t1.rt(90)
 
 t2 = Turtle()
-t2.shape("circle")
+t2.shape("turtle")
 t2.color("blue")
 t2.pu()
 t2.goto(100,-100)
@@ -68,7 +68,7 @@ for i in range(3):
     t2.lt(120)
 
 t3 = Turtle()
-t3.shape("arrow")
+t3.shape("turtle")
 t3.color("yellow")
 t3.pu()
 t3.goto(0,-200)
