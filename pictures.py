@@ -17,13 +17,11 @@ enemy = Turtle()
 enemy.shape("dog.gif")
 enemy.pu()
 enemy.goto(100,0)
-enemy.speed(1)
 
 enemy2 = Turtle()
 enemy2.shape("tiger.gif")
 enemy2.pu()
 enemy2.goto(-200,0)
-enemy2.speed(0.5)
 
 def move_player(x, y):
     player.goto(x,y)
@@ -34,23 +32,20 @@ def move_enemy():
     enemy.goto(x, y)
 
 def move_enemy2():
-    x = player.xcor() - 74
-    y = player.ycor() - 74
+    dx = player.xcor() - enemy2.xcor()
+    dy = player.ycor() - enemy2.ycor()
 
-    enemy2.goto(x, y)
+    enemy2.goto(enemy2.xcor() + dx * 0.3, enemy2.ycor() + dy * 0.3)
 def game():
     move_enemy()
     move_enemy2()
-    if player.distance(enemy) < 64:
-        player.home()
-        player.write("Вы проиграли!", align="center",font=("Arial",24,"bold"))
-        return
-        screen.ontimer(game, 1000)
-    elif player.distance(enemy2) < 74:
+
+    if player.distance(enemy) < 64 or player.distance(enemy2) < 74:
         player.home()
         player.write("Вы проиграли!", align="center",font=("Arial",24,"bold"))
         return
     screen.ontimer(game, 1000)
+
 
 game()
 screen.onclick(move_player)
